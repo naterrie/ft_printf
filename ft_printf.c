@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/18 16:26:01 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 18:06:40 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 int	ft_check_caracter(char c, va_list args)
 {
-	int	charset;
-
-	charset = 0;
 	if (c == 'c')
-		ft_putchar(args);
+		ft_putchar(va_arg(args, char));
 	else if (c == 's')
-		ft_putstr(args);
+		ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		charset = 3;
+		return (0); // Adresse de la variable
 	else if (c == 'd')
-		charset = 4;
+		ft_putnbr(va_arg(args, int));
 	else if (c == 'i')
-		charset = 5;
+		ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
-		charset = 6;
+		ft_unsigned_putnbr(va_arg(args, unsigned int));
 	else if (c == 'x')
-		charset = 7;
+		ft_putnbrhexa(va_arg(args, int), "abcdef");
 	else if (c == 'X')
-		charset = 8;
+		ft_putnbrhexa(va_arg(args, int), "ABCDEF");
 	else if (c == '%')
 		write (1, '%', 1);
 	return (0);
@@ -44,12 +41,14 @@ int	ft_printf(const char *s, ...)
 	int		i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	va_start (args, s);
 	while (s[i])
 	{
 		if (s[i] == '%')
 		{
-			Check_Caracter(s[i++], args);
+			ft_check_caracter(s[i++], args);
 			i++;
 		}
 		ft_putchar(s[i]);
