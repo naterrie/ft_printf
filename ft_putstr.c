@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 15:44:05 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/18 15:47:33 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/18 16:18:32 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putnbr(int n)
+int	ft_putstr(char *s)
 {
-	if (n == -2147483648)
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		ft_putnbr('-');
-		ft_putnbr('2');
-		ft_putnbr(147483648);
+		ft_putchar(s[i]);
+		i++;
 	}
-	else if (n < 0)
-	{
-		ft_putnbr('-');
-		n = -n;
-		ft_putnbr(n);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	else
-		ft_putnbr(n + 48);
-	return (0);
+	return (i);
 }

@@ -6,6 +6,8 @@ OBJS		= $(SRCS:.c=.o)
 SRC =	ft_printf.c \
 		ft_putnbr.c \
 		ft_putchar.c \
+		ft_putarg.c \
+		ft_putstr.c \
 
 
 FLAGS	= -Wall -Wextra -Werror -I.
