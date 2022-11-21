@@ -6,13 +6,13 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 16:05:56 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:17:05 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_check_caracter(char c, va_list args)
+int	ft_check_caracter(int c, va_list args)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	ft_check_caracter(char c, va_list args)
 	else if (c == 's')
 		i = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
-		i = ft_print_ptr(va_arg(args, void *));
+		i = ft_putptr(va_arg(args, unsigned long long), 0) + 2;
 	else if (c == 'd')
 		i = ft_putnbr(va_arg(args, int));
 	else if (c == 'i')
@@ -30,9 +30,9 @@ int	ft_check_caracter(char c, va_list args)
 	else if (c == 'u')
 		i = ft_putunsigned_nbr(va_arg(args, unsigned int));
 	else if (c == 'x')
-		i = ft_puthexa_nbr(va_arg(args, int), "abcdef");
+		i = ft_puthexa_nbr(va_arg(args, int), "0123456789abcdef");
 	else if (c == 'X')
-		i = ft_puthexa_nbr(va_arg(args, int), "ABCDEF");
+		i = ft_puthexa_nbr(va_arg(args, int), "0123456789ABCDEF");
 	else if (c == '%')
 		i = ft_putchar('%');
 	return (i);
@@ -45,6 +45,7 @@ int	ft_printf(const char *s, ...)
 	int		count;
 
 	i = 0;
+	count = 0;
 	if (!s)
 		return (0);
 	va_start (args, s);
@@ -53,7 +54,7 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			count += ft_check_caracter(s[i], args);
+			count += ft_check_caracter(s[i++], args);
 		}
 		count += ft_putchar(s[i]);
 		i++;

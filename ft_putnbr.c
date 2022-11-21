@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:44:05 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 15:31:39 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:17:29 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	ft_putunsigned_nbr(unsigned int nb)
 int	ft_putnbr(int n)
 {
 	int				count;
-	unsigned int	nb;
 
 	count = 0;
 	while (n > 0)

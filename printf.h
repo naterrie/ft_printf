@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 14:56:27 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 15:35:59 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/21 19:20:45 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/21 19:20:47 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 # include <unistd.h>
 # include <stdio.h>
 
-void	ft_putptr(int num);
-
-int		ft_putnbr(int n);
-int		ft_putstr(char *s);
-int		ft_putchar(char c);
-int		ft_ptr_len(int num);
-int		ft_print_ptr(void *ptr);
-int		ft_printf(const char *s, ...);
-int		ft_putunsigned_nbr(unsigned int nb);
-int		ft_Check_Caracter(char *c, va_list args);
-int		ft_puthexa_nbr(unsigned int nbr, const char *base);
+int	ft_putnbr(int n);
+int	ft_putstr(char *s);
+int	ft_putchar(char c);
+int	ft_ptr_len(int num);
+int	ft_print_ptr(void *ptr);
+int	ft_printf(const char *s, ...);
+int	ft_putunsigned_nbr(unsigned int nb);
+int	ft_Check_Caracter(char *c, va_list args);
+int	ft_putptr(unsigned long long nbr, int n);
+int	ft_puthexa_nbr(unsigned int nbr, const char *base);
 
 #endif

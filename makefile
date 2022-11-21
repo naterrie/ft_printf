@@ -1,26 +1,25 @@
-OBJS		= $(SRCS:.c=.o)
-
-%.o: %.c
-		cc -I. -o $@ -c $? $(FLAGS)
-
-SRC =	ft_printf.c \
-		ft_putnbr.c \
-		ft_putchar.c \
-		ft_putarg.c \
-		ft_putstr.c \
-		ft_putpr.c \
-
-
-FLAGS	= -Wall -Wextra -Werror
+OBJS	= $(SRC:.c=.o)
 
 HEADER = printf.h
+
+%.o: %.c
+		cc -o $@ -c $? $(FLAGS)
+
+SRC =	ft_printf.c \
+		ft_putchar.c \
+		ft_putnbr.c \
+		ft_putptr.c \
+		ft_putstr.c \
+
+FLAGS	= -Wall -Wextra -Werror
 
 NAME	= libftprintf.a
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS) Makefile $(HEADER)
+$(NAME):	$(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
 
 clean:
 	@rm -f $(OBJS)
