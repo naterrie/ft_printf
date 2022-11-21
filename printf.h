@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:56:27 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 14:10:40 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 15:35:59 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 void	ft_putptr(int num);
 
@@ -27,6 +28,6 @@ int		ft_print_ptr(void *ptr);
 int		ft_printf(const char *s, ...);
 int		ft_putunsigned_nbr(unsigned int nb);
 int		ft_Check_Caracter(char *c, va_list args);
-int		ft_puthexnbr(unsigned int nbr, const char *base);
+int		ft_puthexa_nbr(unsigned int nbr, const char *base);
 
 #endif

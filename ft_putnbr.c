@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:44:05 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 14:11:57 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 15:31:39 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_puthexa_nbr(unsigned int nbr, const char *base)
 {
 	int	count;
 
-	i = 0;
+	count = 0;
 	if (nbr > 15)
 	{
 		count = ft_puthexa_nbr(nbr / 16, base);

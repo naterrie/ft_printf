@@ -1,6 +1,6 @@
 OBJS		= $(SRCS:.c=.o)
 
-%.o: %.c Makefile $(HEADER)
+%.o: %.c
 		cc -I. -o $@ -c $? $(FLAGS)
 
 SRC =	ft_printf.c \
@@ -11,15 +11,15 @@ SRC =	ft_printf.c \
 		ft_putpr.c \
 
 
-FLAGS	= -Wall -Wextra -Werror -I.
+FLAGS	= -Wall -Wextra -Werror
 
 HEADER = printf.h
 
-NAME	= printf.a
+NAME	= libftprintf.a
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) Makefile $(HEADER)
 	ar rcs $(NAME) $(OBJS)
 
 clean:

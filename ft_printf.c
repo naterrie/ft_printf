@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 13:46:00 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 16:05:56 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_check_caracter(char c, va_list args)
 
 	i = 0;
 	if (c == 'c')
-		i = ft_putchar(va_arg(args, char));
+		i = ft_putchar(va_arg(args, int));
 	else if (c == 's')
 		i = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
@@ -28,16 +28,13 @@ int	ft_check_caracter(char c, va_list args)
 	else if (c == 'i')
 		i = ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
-		i = ft_unsigned_putnbr(va_arg(args, unsigned int));
+		i = ft_putunsigned_nbr(va_arg(args, unsigned int));
 	else if (c == 'x')
-		i = ft_putnbrhexa(va_arg(args, int), "abcdef");
+		i = ft_puthexa_nbr(va_arg(args, int), "abcdef");
 	else if (c == 'X')
-		i = ft_putnbrhexa(va_arg(args, int), "ABCDEF");
+		i = ft_puthexa_nbr(va_arg(args, int), "ABCDEF");
 	else if (c == '%')
-	{
-		write (1, '%', 1);
-		i++;
-	}
+		i = ft_putchar('%');
 	return (i);
 }
 
@@ -55,12 +52,12 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			i = ft_check_caracter(s[i++], args);
 			i++;
+			count += ft_check_caracter(s[i], args);
 		}
-		ft_putchar(s[i]);
+		count += ft_putchar(s[i]);
 		i++;
 	}
 	va_end (args);
-	return (0);
+	return (count);
 }
