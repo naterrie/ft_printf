@@ -6,11 +6,11 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 20:37:33 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 17:42:58 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:46:53 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putptr(unsigned long long nbr, int n)
 {

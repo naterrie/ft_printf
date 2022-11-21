@@ -1,6 +1,6 @@
 OBJS	= $(SRC:.c=.o)
 
-HEADER = printf.h
+HEADER = ft_printf.h
 
 %.o: %.c
 		cc -o $@ -c $? $(FLAGS)
@@ -19,7 +19,6 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS)
 	ar rcs $(NAME) $(OBJS)
-
 
 clean:
 	@rm -f $(OBJS)

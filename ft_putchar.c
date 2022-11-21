@@ -6,11 +6,11 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:44:25 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 13:46:10 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:46:53 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

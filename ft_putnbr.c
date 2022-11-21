@@ -6,11 +6,11 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:44:05 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 19:17:29 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:57:29 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_puthexa_nbr(unsigned int nbr, const char *base)
 {
@@ -46,21 +46,25 @@ int	ft_putunsigned_nbr(unsigned int nb)
 
 int	ft_putnbr(int n)
 {
-	int				count;
+	int	count;
+	int	nb;
 
+	nb = n;
 	count = 0;
+
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -nb;
+		count++;
+	}
 	while (n > 0)
 	{
 		n /= 10;
 		count++;
 	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n *= -n;
-	}
-	if (n > 9)
-		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
+	if (nb > 9)
+		ft_putnbr(nb / 10);
+	ft_putchar((nb % 10) + '0');
 	return (count);
 }

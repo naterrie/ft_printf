@@ -6,11 +6,11 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 19:17:05 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:50:33 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_check_caracter(int c, va_list args)
 {
