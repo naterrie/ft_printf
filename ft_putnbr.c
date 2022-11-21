@@ -6,42 +6,42 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:44:05 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 14:02:30 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 14:11:57 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_puthexnbr(unsigned int nbr, const char *base)
+int	ft_puthexa_nbr(unsigned int nbr, const char *base)
 {
 	int	count;
 
 	i = 0;
 	if (nbr > 15)
 	{
-		count = ft_puthexnbr(nbr / 16, base);
-		count += ft_puthexnbr(nbr % 16, base);
+		count = ft_puthexa_nbr(nbr / 16, base);
+		count += ft_puthexa_nbr(nbr % 16, base);
 	}
 	else
 		count += ft_putchar(base[nbr]);
 	return (count);
 }
 
-int	ft_putunsigned(unsigned int nb)
+int	ft_putunsigned_nbr(unsigned int nb)
 {
-	int	i;
+	int	count;
 
-	i = 0;
+	count = 0;
 	if (nb > 9)
 	{
-		i = ft_putunsigned(nb / 10);
-		i += ft_putunsigned(nb % 10);
+		count = ft_putunsigned_nbr(nb / 10);
+		count += ft_putunsigned_nbr(nb % 10);
 	}
 	else
 	{
-		i += ft_putchar(nb + 48);
+		count += ft_putchar(nb + 48);
 	}
-	return (i);
+	return (count);
 }
 
 int	ft_putnbr(int n)
@@ -63,5 +63,5 @@ int	ft_putnbr(int n)
 	if (n > 9)
 		ft_putnbr(n / 10);
 	ft_putchar((n % 10) + '0');
-	return (0);
+	return (count);
 }
