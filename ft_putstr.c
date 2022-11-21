@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/18 16:55:54 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 13:46:47 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
+		i += ft_putchar(s[i]);
 	return (i);
 }

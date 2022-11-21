@@ -1,6 +1,6 @@
 OBJS		= $(SRCS:.c=.o)
 
-%.o: %.c
+%.o: %.c Makefile $(HEADER)
 		cc -I. -o $@ -c $? $(FLAGS)
 
 SRC =	ft_printf.c \
@@ -13,7 +13,9 @@ SRC =	ft_printf.c \
 
 FLAGS	= -Wall -Wextra -Werror -I.
 
-NAME	= libftprintf.a
+HEADER = printf.h
+
+NAME	= printf.a
 
 all:	$(NAME)
 

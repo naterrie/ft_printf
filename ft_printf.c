@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/18 21:18:05 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 13:46:00 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ int	ft_check_caracter(char c, va_list args)
 		write (1, '%', 1);
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		i;
+	int		count;
 
 	i = 0;
 	if (!s)
