@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 21:52:57 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/21 15:16:55 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	if (s == 0)
-		return (ft_putstr("(null)"));
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (i);
+	if (!new || !lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

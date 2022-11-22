@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:57:46 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/15 19:30:52 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int	i;
+	char	*str;
+	size_t	i;
+	size_t	j;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
+	if (!s1 && s2)
+		return (NULL);
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (s[i])
+	j = 0;
+	while (s1[i])
 	{
-		ft_putchar(s[i]);
+		str[j++] = s1[i];
 		i++;
 	}
-	return (i);
+	i = 0;
+	while (s2[i])
+	{
+		str[j++] = s2[i];
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }

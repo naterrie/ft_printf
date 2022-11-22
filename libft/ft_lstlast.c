@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/17 16:22:43 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/21 13:14:35 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	if (s == 0)
-		return (ft_putstr("(null)"));
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (i);
+	if (!lst)
+		return (0);
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }

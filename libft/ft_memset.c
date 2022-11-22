@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:02:22 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/15 00:51:47 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	unsigned int	i;
+	unsigned char	*d;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
 	i = 0;
-	while (s[i])
+	d = (unsigned char *)b;
+	while (i < len)
 	{
-		ft_putchar(s[i]);
+		((unsigned char *)b)[i] = (unsigned char)c;
 		i++;
 	}
-	return (i);
+	b = (void *)d;
+	return (b);
 }

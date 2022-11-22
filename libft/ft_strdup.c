@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:48:53 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/15 01:05:03 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
+	char	*str;
+	size_t	i;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s1[i])
 	{
-		ft_putchar(s[i]);
+		str[i] = s1[i];
 		i++;
 	}
-	return (i);
+	str[i] = 0;
+	return (str);
 }

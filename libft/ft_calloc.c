@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:47:51 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/21 19:00:47 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
+	char	*str;
+	size_t	i;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
 	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (i);
+	if (size > 0 && count >= SIZE_MAX / size)
+		return (NULL);
+	if (count == 0)
+		count = 1;
+	if (size == 0)
+		size = 1;
+	str = (char *)malloc(count * size);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, size * count);
+	return ((void *)str);
 }

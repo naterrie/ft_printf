@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:44:13 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/15 00:54:24 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
+	unsigned char	*sc1;
+	unsigned char	*sc2;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
-	i = 0;
-	while (s[i])
+	sc1 = (unsigned char *)s1;
+	sc2 = (unsigned char *)s2;
+	while (n > 0)
 	{
-		ft_putchar(s[i]);
-		i++;
+		if (*sc1 != *sc2)
+			return (*sc1 - *sc2);
+		sc1++;
+		sc2++;
+		n--;
 	}
-	return (i);
+	return (0);
 }

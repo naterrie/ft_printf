@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:17:00 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/15 20:27:12 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
 	i = 0;
-	while (s[i])
+	if (!dst && !src)
+		return (NULL);
+	while (i < n)
 	{
-		ft_putchar(s[i]);
+		((char *)dst)[i] = ((const char *)src)[i];
 		i++;
 	}
-	return (i);
+	return (dst);
 }

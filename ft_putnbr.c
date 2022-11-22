@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:44:05 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 19:57:29 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/22 13:24:44 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,32 @@ int	ft_putunsigned_nbr(unsigned int nb)
 
 int	ft_putnbr(int n)
 {
-	int	count;
-	int	nb;
+	int	size;
 
-	nb = n;
-	count = 0;
+	size = 0;
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (n < 0)
+	{
+		size = size + ft_putchar('-');
+		n = -n;
+	}
+	return (size + putnbr(n));
+}
 
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -nb;
-		count++;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		count++;
-	}
+int	putnbr(int nb)
+{
+	int	i;
+
+	i = 0;
 	if (nb > 9)
-		ft_putnbr(nb / 10);
-	ft_putchar((nb % 10) + '0');
-	return (count);
+	{
+		i = putnbr(nb / 10);
+		i = i + putnbr(nb % 10);
+	}
+	else
+	{
+		i = i + ft_putchar(nb + 48);
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 19:50:33 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/22 14:21:28 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			count += ft_check_caracter(s[i++], args);
+			count += ft_check_caracter(s[i], args);
 		}
-		count += ft_putchar(s[i]);
+		else
+			count += ft_putchar(s[i]);
 		i++;
 	}
 	va_end (args);

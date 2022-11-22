@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 20:37:33 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 19:46:53 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/22 14:05:03 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putptr(unsigned long long nbr, int n)
 	char	*src;
 	int		count;
 
-	src = "0123456789abcdefghijklmnopqrstuvwxzy";
+	src = "0123456789abcdef";
 	count = 0;
 	if (n == 0)
 		write (1, "0x", 2);

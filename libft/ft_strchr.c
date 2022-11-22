@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:16:31 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/21 20:21:36 by naterrie         ###   ########lyon.fr   */
+/*   Created: 2022/11/15 00:34:22 by naterrie          #+#    #+#             */
+/*   Updated: 2022/11/15 00:59:45 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
-	if (s == 0)
-		return (ft_putstr("(null)"));
 	i = 0;
 	while (s[i])
 	{
-		ft_putchar(s[i]);
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
 		i++;
 	}
-	return (i);
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
 }
