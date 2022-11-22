@@ -3,7 +3,7 @@ OBJS	= $(SRC:.c=.o)
 HEADER = ft_printf.h
 
 %.o: %.c
-		cc -o $@ -c $? $(FLAGS)
+		cc $(FLAGS) -c $< -o $@
 
 SRC =	ft_printf.c \
 		ft_putchar.c \
@@ -13,12 +13,16 @@ SRC =	ft_printf.c \
 
 FLAGS	= -Wall -Wextra -Werror
 
+
 NAME	= libftprintf.a
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME):	$(OBJS) $(HEADER) Makefile
+	ar -rcs $(NAME) $(OBJS)
+
+norm:
+	@norminette *.c
 
 clean:
 	@rm -f $(OBJS)
@@ -28,4 +32,4 @@ fclean:	clean
 
 re:	fclean $(NAME)
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re norm
