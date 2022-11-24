@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/24 14:22:42 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/24 20:00:15 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ int	ft_check_caracter(int c, va_list args)
 		i = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
 		i = ft_putptr(va_arg(args, unsigned long long), 0) + 2;
-	else if (c == 'd')
-		i = ft_putnbr(va_arg(args, int));
-	else if (c == 'i')
+	else if (c == 'd' || c == 'i')
 		i = ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
 		i = ft_putunsigned_nbr(va_arg(args, unsigned int));
@@ -55,9 +53,9 @@ int	ft_printf(const char *s, ...)
 		{
 			i++;
 			count += ft_check_caracter(s[i], args);
+			if (s[i] == '\0')
+				return (count);
 		}
-		if (s[i] == 0)
-			return (count);
 		else
 			count += ft_putchar(s[i]);
 		i++;
