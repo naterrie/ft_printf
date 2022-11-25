@@ -9,6 +9,8 @@ SRC =	ft_printf.c \
 		ft_putchar.c \
 		ft_putnbr.c \
 		ft_putptr.c \
+		ft_puthexa_nbr.c \
+		ft_putunsigned_nbr.c \
 		ft_putstr.c \
 
 FLAGS	= -Wall -Wextra -Werror
