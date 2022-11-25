@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:55:11 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/24 20:00:15 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 17:34:40 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	ft_printf(const char *s, ...)
 
 	i = 0;
 	count = 0;
-	if (!s)
-		return (0);
+	if (!s || write (1, 0, 0))
+		return (-1);
 	va_start (args, s);
 	while (s[i])
 	{
