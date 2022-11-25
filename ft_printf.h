@@ -6,7 +6,7 @@
 /*   By: naterrie <naterrie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:20:45 by naterrie          #+#    #+#             */
-/*   Updated: 2022/11/22 13:41:22 by naterrie         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 20:46:34 by naterrie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 int	putnbr(int nb);
 int	ft_putnbr(int n);
 int	ft_putchar(char c);
-int	ft_ptr_len(int num);
-int	ft_print_ptr(void *ptr);
 int	ft_putstr(const char *s);
 int	ft_printf(const char *s, ...);
 int	ft_putunsigned_nbr(unsigned int nb);
