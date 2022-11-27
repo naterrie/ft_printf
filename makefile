@@ -2,7 +2,7 @@ OBJS	= $(SRC:.c=.o)
 
 HEADER = ft_printf.h
 
-%.o: %.c
+%.o: %.c $(HEADER) Makefile
 		cc $(FLAGS) -c $< -o $@
 
 SRC =	ft_printf.c \
@@ -20,7 +20,7 @@ NAME	= libftprintf.a
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS) $(HEADER) Makefile
+$(NAME):	$(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 norm:
